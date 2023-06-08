@@ -1,0 +1,19 @@
+{
+  "name": "simo",
+  "version": "1.0.0",
+  "packageManager": "npm@8.1.2",
+  "description": "simo is a monorepo for simo",
+  "workspaces": [
+    "packages/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hanipcode/simo.git"
+  },
+  "author": "Muhammad Hanif",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hanipcode/simo/issues"
+  },
+  "homepage": "https://github.com/hanipcode/simo#readme"
+}
