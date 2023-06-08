@@ -16,7 +16,7 @@
     "@/core": "./dist/core"
   },
   "scripts": {
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\"",
+    "dev": "bun --hot src/index.ts",
     "build": "npx tsc"
   },
   "name": "server",
@@ -33,6 +33,7 @@
   "dependencies": {
     "@fastify/cors": "^8.3.0",
     "dotenv": "^16.1.4",
+    "elysia": "^0.5.17",
     "express": "^4.18.2",
     "fastify": "^4.17.0",
     "fp-ts": "^2.16.0",
