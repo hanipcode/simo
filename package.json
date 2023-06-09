@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/hanipcode/simo/issues"
   },
-  "homepage": "https://github.com/hanipcode/simo#readme"
+  "homepage": "https://github.com/hanipcode/simo#readme",
+  "dependencies": {
+    "zod": "^3.21.4"
+  }
 }

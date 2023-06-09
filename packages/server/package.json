@@ -16,7 +16,7 @@
     "@/core": "./dist/core"
   },
   "scripts": {
-    "dev": "bun --hot src/index.ts",
+    "dev": "bun --watch src/index.ts",
     "build": "npx tsc"
   },
   "name": "server",
