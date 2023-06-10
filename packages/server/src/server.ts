@@ -1,3 +1,5 @@
-import { Elysia } from "elysia";
+import fastify from "fastify";
 
-export const app = new Elysia();
+export const app = fastify({
+  logger: true,
+});

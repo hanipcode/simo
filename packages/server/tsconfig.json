@@ -7,7 +7,9 @@
     "paths": {
       "@/ports/*": ["ports/*"],
       "@/helpers/*": ["helpers/*"],
-      "@/core/*": ["core/*"]
+      "@/core/*": ["core/*"],
+      "@/db/*": ["db/*"],
+      "@/routers/*": ["routers/*"]
     },
     "module": "CommonJS",
     "lib": ["esnext"],

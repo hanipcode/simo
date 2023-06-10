@@ -13,10 +13,12 @@
   "_moduleAliases": {
     "@/ports": "./dist/ports",
     "@/helpers": "./dist/helpers",
-    "@/core": "./dist/core"
+    "@/core": "./dist/core",
+    "@/db": "./dist/db",
+    "@/routers": "./dist/routers"
   },
   "scripts": {
-    "dev": "bun --watch src/index.ts",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\"",
     "build": "npx tsc"
   },
   "name": "server",
@@ -31,14 +33,15 @@
     "typescript": "^5.1.3"
   },
   "dependencies": {
-    "@elysiajs/cors": "^0.5.2",
     "@fastify/cors": "^8.3.0",
+    "@prisma/client": "^4.15.0",
+    "@trpc/server": "^10.29.1",
     "dotenv": "^16.1.4",
-    "elysia": "^0.5.17",
     "express": "^4.18.2",
     "fastify": "^4.17.0",
     "fp-ts": "^2.16.0",
-    "io-ts": "^2.2.20",
-    "io-ts-types": "^0.5.19"
+    "prisma": "^4.15.0",
+    "runtypes": "^6.7.0",
+    "zod": "^3.21.4"
   }
 }
