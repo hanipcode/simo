@@ -12,9 +12,15 @@ export type SuccessResponse<T> = BaseResponse & {
   data: T;
 };
 
-export const createErrorResponse = <T>(error: T): ErrorResponse<T> => ({
+export const createErrorResponse = <T extends Error>(
+  error: T
+): ErrorResponse<T> => ({
   success: false,
-  error,
+  error: {
+    ...error,
+    message: error.message,
+    stack: error.stack,
+  },
 });
 
 export const createSuccessResponse = <T>(data: T): SuccessResponse<T> => ({
