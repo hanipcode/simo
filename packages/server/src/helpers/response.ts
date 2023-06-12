@@ -18,8 +18,6 @@ export const createErrorResponse = <T extends Error>(
   success: false,
   error: {
     ...error,
-    message: error.message,
-    stack: error.stack,
   },
 });
 

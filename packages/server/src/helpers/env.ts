@@ -2,7 +2,7 @@ import { z } from "zod";
 import * as E from "fp-ts/Either";
 import { pipe } from "fp-ts/function";
 
-type Envs = "PORT" | "SALT";
+type Envs = "PORT" | "JWT";
 
 export const env = (value: Envs): string => {
   const envString = z.string().min(1);

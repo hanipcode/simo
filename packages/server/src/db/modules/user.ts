@@ -5,10 +5,9 @@ import * as E from "fp-ts/Either";
 import * as R from "fp-ts/Record";
 import * as O from "fp-ts/Option";
 import bcrypt from "bcrypt";
-import { CreateUser } from "@/core/user/types";
-import { env } from "@/helpers/env";
+import { CreateUser, LoginUser } from "@/core/user/types";
 import { Prisma } from "@prisma/client";
-import { logError } from "@/helpers/error";
+import { AuthError, DBError, logError, NotFoundError } from "@/helpers/error";
 
 export const dbGetAllUser = () => TE.tryCatch(prisma.user.findMany, E.toError);
 
@@ -20,12 +19,26 @@ export const dbInsertUser = (user: CreateUser) =>
       E.toError
     ),
     E.map(O.getOrElseW(() => new Error("Modify Password failed"))),
-    E.mapLeft(logError),
     TE.fromEither,
     TE.chain(
       TE.tryCatchK(
         (data) => prisma.user.create({ data: data as Prisma.UserCreateInput }),
-        E.toError
+        (err) => new DBError(err as Error) as Error
+      )
+    )
+  );
+
+export const dbUserLogin = (user: LoginUser) =>
+  pipe(
+    user,
+    TE.tryCatchK(
+      (user) => prisma.user.findUniqueOrThrow({ where: { email: user.email } }),
+      () => new NotFoundError("user")
+    ),
+    TE.map(
+      E.fromPredicate(
+        (dbUser) => bcrypt.compareSync(user.password, dbUser.password),
+        () => new AuthError("WrongPassword")
       )
     )
   );
