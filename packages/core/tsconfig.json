@@ -5,12 +5,6 @@
     "outDir": "./dist",
     "baseUrl": "./src",
     "target": "ES6",
-    "paths": {
-      "@/ports/*": ["ports/*"],
-      "@/helpers/*": ["helpers/*"],
-      "@/db/*": ["db/*"],
-      "@/routers/*": ["routers/*"]
-    },
     "module": "CommonJS",
     "lib": ["esnext"],
     "importHelpers": true,

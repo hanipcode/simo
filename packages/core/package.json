@@ -1,3 +1,18 @@
 {
-  "name": "core"
+  "version": "0.1.0",
+  "license": "MIT",
+  "exports": {
+    ".": "./dist/index.js",
+    "./user": "./dist/user/index.js"
+  },
+  "typings": "dist/index.d.ts",
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "dev": "npx tsc --watch",
+    "build": "npx tsc"
+  },
+  "name": "core",
+  "author": "Muhammad Hanif"
 }

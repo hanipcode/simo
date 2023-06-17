@@ -5,9 +5,9 @@ import * as E from "fp-ts/Either";
 import * as R from "fp-ts/Record";
 import * as O from "fp-ts/Option";
 import bcrypt from "bcrypt";
-import { CreateUser, LoginUser } from "@/core/user/types";
+import { CreateUser, LoginUser } from "core/user";
 import { Prisma } from "@prisma/client";
-import { AuthError, DBError, logError, NotFoundError } from "@/helpers/error";
+import { AuthError, DBError, NotFoundError } from "@/helpers/error";
 
 export const dbGetAllUser = () => TE.tryCatch(prisma.user.findMany, E.toError);
 

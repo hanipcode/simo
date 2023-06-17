@@ -4,12 +4,12 @@ import * as TE from "fp-ts/TaskEither";
 import * as E from "fp-ts/Either";
 import * as R from "fp-ts/Record";
 import * as A from "fp-ts/Array";
-import { CreateUser, LoginUser, UserOutput } from "@/core/user/types";
+import { CreateUser, LoginUser, UserOutput } from "core/user";
 import { FastifyPluginCallback } from "fastify";
 import { createSuccessResponse } from "@/helpers/response";
 import { parse } from "@/helpers/parse";
 import { replyErrorEffect } from "@/helpers/error";
-import { sanitizeUser } from "@/core/user/helper/sanitize";
+import { sanitizeUser } from "core/user";
 
 export const userRouter: FastifyPluginCallback = (app, _, done) => {
   app.get("/", { onRequest: [app.authenticate] }, (_, reply) =>
